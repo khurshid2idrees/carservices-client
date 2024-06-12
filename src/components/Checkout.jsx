@@ -6,6 +6,7 @@ import { resetCart } from "../features/cartSlice";
 import { resetState } from "../features/cartSlice";
 
 
+
 export default function Checkout() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
