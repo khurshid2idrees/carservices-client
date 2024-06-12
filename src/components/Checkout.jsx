@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { addOrders } from "../features/cartSlice";
-import { resetCart } from "../features/cartSlice";
 import { resetState } from "../features/cartSlice";
 import { createOrder } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -31,20 +29,18 @@ export default function Checkout() {
     e.preventDefault();
 
     const myaddress = {
-      name,
-      email,
+      // name,
+      // email,
       address,
       city,
       state,
       zip,
-      
     };
 
     console.log(myaddress, "ye to rha");
 
-    dispatch(createOrder({ cart: cartitems, user, fulladdress: myaddress }));
-    navigate('/orders')
-    
+    dispatch(createOrder({ cart: cartitems, user, address: myaddress }));
+    navigate("/orders");
 
     // console.log({ cart: cartitems, user: user, address: myaddress }, "kdhere");
   };
@@ -55,13 +51,10 @@ export default function Checkout() {
         <div className="h-screen grid grid-cols-3">
           <div className="lg:col-span-2 grid-col col-span-3 bg-indigo-50 space-y-8 md:px-12">
             <div className="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-white shadow rounded-md">
-           
               <div className="text-sm tracking-wide text-gray-500 mt-4 sm:mt-0 sm:ml-4">
                 Complete your shipping and payment details below.
               </div>
-              <div className="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer">
-              
-              </div>
+              <div className="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-gray-400 hover:text-gray-800 cursor-pointer"></div>
             </div>
             <div className="rounded-md">
               <form id="payment-form" onSubmit={handleSubmit}>
@@ -70,7 +63,7 @@ export default function Checkout() {
                     Shipping &amp; Billing Information
                   </h2>
                   <fieldset className="mb-3 bg-white shadow-lg md:py-8 py-4 rounded text-gray-600">
-                    <label className="flex border-b border-gray-200 h-12 py-3 items-center">
+                    {/* <label className="flex border-b border-gray-200 h-12 py-3 items-center">
                       <span className="text-right px-2 w-20">Name</span>
                       <input
                         name="name"
@@ -91,7 +84,7 @@ export default function Checkout() {
                         required={true}
 
                       />
-                    </label>
+                    </label> */}
                     <label className="flex border-b border-gray-200 h-12 py-3 items-center">
                       <span className="text-right px-2 w-20">Address</span>
                       <input
@@ -100,7 +93,6 @@ export default function Checkout() {
                         className="focus:outline-none px-3"
                         placeholder="10 Street XYZ 654"
                         required={true}
-
                       />
                     </label>
                     <label className="flex border-b border-gray-200 h-12 py-3 items-center">
@@ -111,7 +103,6 @@ export default function Checkout() {
                         className="focus:outline-none px-3"
                         placeholder="San Francisco"
                         required={true}
-
                       />
                     </label>
                     <label className="inline-flex md:ml-0 ml-7 w-2/4 border-gray-200 py-3">
@@ -122,7 +113,6 @@ export default function Checkout() {
                         className="focus:outline-none px-3"
                         placeholder="CA"
                         required={true}
-
                       />
                     </label>
                     <label className="xl:w-1/4 md:ml-0 ml-10 xl:inline-flex py-3 items-center flex xl:border-none border-t border-gray-200 py-3">
@@ -135,10 +125,8 @@ export default function Checkout() {
                         className="focus:outline-none px-3"
                         placeholder={98603}
                         required={true}
-
                       />
                     </label>
-                 
                   </fieldset>
                 </section>
 
@@ -148,7 +136,7 @@ export default function Checkout() {
                       type="submit"
                       className="submit-button mt-8 px-4 py-3 rounded-full bg-gray-800 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors"
                     >
-                       Place order
+                      Place order
                     </button>
                   </>
                 ) : (
