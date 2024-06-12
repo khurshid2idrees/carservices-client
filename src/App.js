@@ -32,7 +32,14 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <Checkout />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/orders"
           element={
