@@ -10,11 +10,15 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import OrderDetails from "./components/OrderDetails";
 import { saveUser } from "./features/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
   // const [user, setUser] = useState({});
+
+  const user = useSelector((state)=>state.cart.user)
+  console.log(user)
 
   const dispatch = useDispatch();
 

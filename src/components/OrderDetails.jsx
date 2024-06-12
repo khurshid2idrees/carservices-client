@@ -11,11 +11,14 @@ export default function OrderDetails() {
 
   const cartitems = useSelector((state) => state.cart.cartItems);
 
-  const { cart } = orders[0];
-  const {address} = orders[0]
-  
+  if (!orders.length) {
+    window.location.href = "/checkout";
+  }
 
-  console.log(address,'address mil gya bhai')
+  const { cart } = orders[0];
+  const { address } = orders[0];
+
+  console.log(address, "address mil gya bhai");
 
   const allprice = cart.map((data) => Number(data.price) * data.quantity);
   const totalPrice = allprice.reduce((a, b) => a + b, 0);
@@ -23,10 +26,8 @@ export default function OrderDetails() {
   console.log(cart);
 
   useEffect(() => {
-    if (user.name) {
+    if (user && user._id) {
       dispatch(fetchOrders(user._id));
-
-      console.log(orders, "done bro");
     }
   }, [dispatch, user]);
 
@@ -195,10 +196,10 @@ export default function OrderDetails() {
                           Shipping Address
                         </p>
                         <p className="w-48 lg:w-full dark:text-gray-300 xl:w-48 text-center md:text-left text-sm leading-5 text-gray-600">
-                         {address.address},{address.city},{address.state}, {address.zip}
+                          {address.address},{address.city},{address.state},{" "}
+                          {address.zip}
                         </p>
                       </div>
-                    
                     </div>
                   </div>
                 </div>

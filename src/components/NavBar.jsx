@@ -70,9 +70,9 @@ export default function NavBar() {
                   <li>
                     <Link
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                      to={`/orders`}
+                      to={`/checkout`}
                     >
-                      ORDERS
+                      CHECKOUT
                     </Link>
                   </li>
                 </ul>
@@ -113,7 +113,7 @@ export default function NavBar() {
                     </span>
                   </div>
                 </Link>
-                {user&& user.name ? (
+                {user && user.name ? (
                   <>
                     <button
                       onClick={handleLogout}

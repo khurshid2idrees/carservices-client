@@ -7,9 +7,9 @@ export default function ProtectedRoute({ children }) {
 
   const user = useSelector((state) => state.cart.user);
 
-  if (user.name) {
-    return children;
+  if (!user.name) {
+    window.location.href = "/login";
   }
 
-  window.location.href = "/login";
+  return children;
 }
