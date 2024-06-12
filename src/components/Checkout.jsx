@@ -4,8 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addOrders } from "../features/cartSlice";
 import { resetCart } from "../features/cartSlice";
 import { resetState } from "../features/cartSlice";
-
-
+import { createOrder } from "../features/cartSlice";
 
 export default function Checkout() {
   const [name, setName] = useState("");
@@ -47,8 +46,8 @@ export default function Checkout() {
 
     console.log(myaddress, "ye to rha");
 
-    dispatch(addOrders({ cart: cartitems, user, fulladdress: myaddress }));
-    dispatch(resetCart());
+    dispatch(createOrder({ cart: cartitems, user, fulladdress: myaddress }));
+    // dispatch(resetCart());
 
     console.log({ cart: cartitems, user: user, address: myaddress }, "kdhere");
   };

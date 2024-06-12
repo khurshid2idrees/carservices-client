@@ -10,7 +10,7 @@ const initialState = {
 export const createOrder = createAsyncThunk(
   "createOrder",
   async (order, { rejectWithValue }) => {
-    const response = await fetch("http://localhost:4000/orders", {
+    const response = await fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
