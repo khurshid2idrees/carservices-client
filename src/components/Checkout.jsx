@@ -18,18 +18,14 @@ export default function Checkout() {
   const dispatch = useDispatch();
   const cartitems = useSelector((state) => state.cart.cartItems);
 
+  const user = useSelector((state) => state.cart.user);
+
+  // console.log(user,'yi he to hai ')
+
   const allprice = cartitems.map((data) => Number(data.price));
   const totalPrice = allprice.reduce((a, b) => a + b, 0);
 
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    axios.defaults.withCredentials = true;
-    axios
-      .get("http://localhost:4000/")
-      .then((user) => setUser(user.data))
-      .catch((err) => console.log(err));
-  }, []);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

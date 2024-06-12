@@ -4,7 +4,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 export default function NavBar() {
-  const products = useSelector((state)=>state.cart.cartItems)
+  const products = useSelector((state) => state.cart.cartItems);
+  const user = useSelector((state) => state.cart.user);
 
   return (
     <>
@@ -49,7 +50,7 @@ export default function NavBar() {
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                       to={`/cart`}
                     >
-                      Cart ({products.length>0?products.length:null})
+                      Cart ({products.length > 0 ? products.length : null})
                     </Link>
                   </li>
                   <li>
@@ -60,8 +61,6 @@ export default function NavBar() {
                       Orders
                     </Link>
                   </li>
-                 
-                  
                 </ul>
               </nav>
             </div>
@@ -74,16 +73,26 @@ export default function NavBar() {
               </button> */}
 
               <div className="auth flex items-center w-full md:w-full">
-                <Link to={`/login`}>
-                  <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
-                    Log in
-                  </button>
-                </Link>
-                <Link to={`/register`}>
-                  <button className="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
-                    Register
-                  </button>
-                </Link>
+                {user.name ? (
+                  <>
+                    <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link to={`/login`}>
+                      <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
+                        Log in
+                      </button>
+                    </Link>
+                    <Link to={`/register`}>
+                      <button className="bg-blue-600 text-gray-200  p-2 rounded  hover:bg-blue-500 hover:text-gray-100">
+                        Register
+                      </button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

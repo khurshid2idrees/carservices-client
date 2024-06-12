@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice, nanoid } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   orders: [],
+  user: null,
   loading: false,
   error: false,
 };
@@ -57,6 +58,9 @@ const cartSlice = createSlice({
     resetState: (state) => {
       return initialState;
     },
+    saveUser: (state, action) => {
+      state.user = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -76,7 +80,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, addOrders, resetCart, resetState } =
+export const { addToCart, addOrders, resetCart, resetState, saveUser } =
   cartSlice.actions;
 
 export default cartSlice.reducer;
