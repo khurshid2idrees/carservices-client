@@ -11,6 +11,7 @@ import Checkout from "./components/Checkout";
 import OrderDetails from "./components/OrderDetails";
 import { saveUser } from "./features/cartSlice";
 import { useDispatch } from "react-redux";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   // const [user, setUser] = useState({});
@@ -32,7 +33,14 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/orders" element={<OrderDetails />} />
+        <Route
+          path="/orders"
+          element={
+            <ProtectedRoute>
+              <OrderDetails />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
