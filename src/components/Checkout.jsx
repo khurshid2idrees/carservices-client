@@ -5,6 +5,7 @@ import { addOrders } from "../features/cartSlice";
 import { resetCart } from "../features/cartSlice";
 import { resetState } from "../features/cartSlice";
 import { createOrder } from "../features/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
   const [name, setName] = useState("");
@@ -13,9 +14,10 @@ export default function Checkout() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
-  const [country, setCountry] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const cartitems = useSelector((state) => state.cart.cartItems);
 
   const user = useSelector((state) => state.cart.user);
@@ -35,15 +37,16 @@ export default function Checkout() {
       city,
       state,
       zip,
-      country,
+      
     };
 
     console.log(myaddress, "ye to rha");
 
     dispatch(createOrder({ cart: cartitems, user, fulladdress: myaddress }));
-    // dispatch(resetCart());
+    navigate('/orders')
+    
 
-    console.log({ cart: cartitems, user: user, address: myaddress }, "kdhere");
+    // console.log({ cart: cartitems, user: user, address: myaddress }, "kdhere");
   };
 
   return (
@@ -145,7 +148,7 @@ export default function Checkout() {
                       type="submit"
                       className="submit-button mt-8 px-4 py-3 rounded-full bg-gray-800 text-white focus:ring focus:outline-none w-full text-xl font-semibold transition-colors"
                     >
-                      Pay ${totalPrice} and confirm order
+                       Place order
                     </button>
                   </>
                 ) : (

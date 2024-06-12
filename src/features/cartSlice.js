@@ -28,6 +28,22 @@ export const createOrder = createAsyncThunk(
   }
 );
 
+export const fetchOrders = createAsyncThunk(
+  "fetchOrders",
+  async (userId, { rejectWithValue }) => {
+    const response = await fetch(
+      `http://localhost:5000/orders/`+userId
+    );
+
+    try {
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -55,15 +71,6 @@ const cartSlice = createSlice({
       const id = action.payload;
       state.cartItems = state.cartItems.filter((item) => item.id !== id);
     },
-    addOrders: (state, action) => {
-      const order = {
-        id: nanoid(),
-        cart: action.payload.cart,
-        user: action.payload.user,
-        address: action.payload.fulladdress,
-      };
-      state.orders.push(order);
-    },
 
     resetCart: (state, action) => {
       state.cartItems = [];
@@ -89,13 +96,23 @@ const cartSlice = createSlice({
       .addCase(createOrder.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchOrders.pending, (state,action) => {
+        state.loading = true;
+      })
+      .addCase(fetchOrders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.orders = action.payload;
+      })
+      .addCase(fetchOrders.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
 
 export const {
   addToCart,
-  addOrders,
   resetCart,
   resetState,
   saveUser,

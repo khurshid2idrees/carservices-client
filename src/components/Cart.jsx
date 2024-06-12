@@ -87,7 +87,7 @@ export default function Cart() {
                             RF293
                           </p>
                           <div className="flex items-center justify-between w-full pt-1">
-                            <p className="text-base font-black leading-none text-gray-800 dark:text-white">
+                            <p className="text-xl font-semibold font-black leading-none text-gray-800 dark:text-white">
                               {product.name}
                             </p>
                             <select
@@ -119,7 +119,7 @@ export default function Cart() {
                       </p> */}
                               <p
                                 onClick={() => handleRemoveFromCart(product.id)}
-                                className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer"
+                                className="text-base leading-3 underline text-red-500 pl-5 cursor-pointer"
                               >
                                 Remove
                               </p>
