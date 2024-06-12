@@ -52,14 +52,14 @@ export default function NavBar() {
                       Cart ({products.length>0?products.length:null})
                     </Link>
                   </li>
-                  {/* <li>
+                  <li>
                     <Link
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
-                      to={`/checkout`}
+                      to={`/orders`}
                     >
-                      Checkout
+                      Orders
                     </Link>
-                  </li> */}
+                  </li>
                  
                   
                 </ul>

@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
+import OrderDetails from "./components/OrderDetails";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/cart" element={<Cart />} />
-        <Route exact path="/checkout" element={<Checkout />} />
+        <Route  path="/cart" element={<Cart />} />
+        <Route  path="/checkout" element={<Checkout />} />
+        <Route  path="/orders" element={<OrderDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
