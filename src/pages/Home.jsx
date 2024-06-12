@@ -6,7 +6,8 @@ const products = [
   {
     id: 1,
     name: "Soft Drinks",
-    imageSrc:"https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/groceries/Soft%20Drinks/thumbnail.png",
     price: "100",
   },
   {
@@ -19,61 +20,71 @@ const products = [
   {
     id: 3,
     name: "Tissue Paper Box",
-    imageSrc:"https://cdn.dummyjson.com/products/images/groceries/Tissue%20Paper%20Box/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/groceries/Tissue%20Paper%20Box/thumbnail.png",
     price: "250",
   },
   {
     id: 4,
     name: "Decoration Swing",
-    imageSrc:"https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/home-decoration/Decoration%20Swing/thumbnail.png",
     price: "325",
   },
   {
     id: 5,
     name: "Family Tree Photo Frame",
-    imageSrc:"https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/home-decoration/Family%20Tree%20Photo%20Frame/thumbnail.png",
     price: "300",
   },
   {
     id: 6,
     name: "House Showpiece Plant",
-    imageSrc:"https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/home-decoration/House%20Showpiece%20Plant/thumbnail.png",
     price: "200",
   },
   {
     id: 7,
     name: "Plant Pot",
-    imageSrc:"https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/home-decoration/Plant%20Pot/thumbnail.png",
     price: "450",
   },
   {
     id: 8,
     name: "Table Lamp",
-    imageSrc:"https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png",
     price: "440",
   },
   {
     id: 9,
     name: "Bamboo Spatula",
-    imageSrc:"https://cdn.dummyjson.com/products/images/kitchen-accessories/Bamboo%20Spatula/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Bamboo%20Spatula/thumbnail.png",
     price: "30",
   },
   {
     id: 10,
     name: "Black Aluminium Cup",
-    imageSrc:"https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Aluminium%20Cup/thumbnail.png",
     price: "70",
   },
   {
     id: 11,
     name: "Black Whisk",
-    imageSrc:"https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Whisk/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Black%20Whisk/thumbnail.png",
     price: "90",
   },
   {
     id: 12,
     name: "Boxed Blender",
-    imageSrc:"https://cdn.dummyjson.com/products/images/kitchen-accessories/Boxed%20Blender/thumbnail.png",
+    imageSrc:
+      "https://cdn.dummyjson.com/products/images/kitchen-accessories/Boxed%20Blender/thumbnail.png",
     price: "100",
   },
 ];
@@ -124,10 +135,9 @@ export default function Home() {
                         {product.name}
                       </a>
                     </h3>
-                   
                   </div>
                   <p className="text-sm font-medium text-gray-900">
-                   ${product.price}
+                    ${product.price}
                   </p>
                 </div>
                 <button className="flex items-center justify-center w-full px-2 py-2 mt-4 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:bg-gray-700">

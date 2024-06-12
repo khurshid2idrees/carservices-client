@@ -25,7 +25,7 @@ export default function NavBar() {
       <>
         <nav
           id="header"
-          className="w-full z-30 top-10 py-1 bg-white shadow-lg border-b border-blue-400"
+          className="w-full sticky     py-1 bg-white shadow-xl  "
         >
           <div className="w-full flex items-center justify-between mt-0 px-6 py-2">
             <label
@@ -49,7 +49,7 @@ export default function NavBar() {
               id="menu"
             >
               <nav>
-                <ul className="md:flex items-center justify-between text-base text-blue-600 pt-4 md:pt-0">
+                <ul className="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
                   <li>
                     <Link
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
