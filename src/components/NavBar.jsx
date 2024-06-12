@@ -2,10 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const products = useSelector((state) => state.cart.cartItems);
   const user = useSelector((state) => state.cart.user);
+
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+
+    axios.get("http://localhost:4000/logout").then((res) => {
+      if (res.data === "success") {
+        window.location.href = "/";
+      }
+    });
+  };
 
   return (
     <>
@@ -75,7 +88,10 @@ export default function NavBar() {
               <div className="auth flex items-center w-full md:w-full">
                 {user.name ? (
                   <>
-                    <button className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700">
+                    <button
+                      onClick={handleLogout}
+                      className="bg-transparent text-gray-800  p-2 rounded border border-gray-300 mr-4 hover:bg-gray-100 hover:text-gray-700"
+                    >
                       Logout
                     </button>
                   </>
