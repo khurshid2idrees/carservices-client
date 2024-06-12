@@ -31,9 +31,7 @@ export const createOrder = createAsyncThunk(
 export const fetchOrders = createAsyncThunk(
   "fetchOrders",
   async (userId, { rejectWithValue }) => {
-    const response = await fetch(
-      `http://localhost:5000/orders/`+userId
-    );
+    const response = await fetch(`http://localhost:5000/orders/${userId}`);
 
     try {
       const result = await response.json();
@@ -75,6 +73,9 @@ const cartSlice = createSlice({
     resetCart: (state, action) => {
       state.cartItems = [];
     },
+    resetOrder: (state, action) => {
+      state.orders = [];
+    },
     resetState: (state) => {
       return initialState;
     },
@@ -97,7 +98,7 @@ const cartSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(fetchOrders.pending, (state,action) => {
+      .addCase(fetchOrders.pending, (state, action) => {
         state.loading = true;
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
@@ -116,6 +117,7 @@ export const {
   resetCart,
   resetState,
   saveUser,
+  resetOrder,
   updateCartQuantity,
   removeFromCart,
 } = cartSlice.actions;

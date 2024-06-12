@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const products = useSelector((state) => state.cart.cartItems);
   const user = useSelector((state) => state.cart.user);
-
+  const order = useSelector((state) => state.orders);
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
@@ -75,6 +75,18 @@ export default function NavBar() {
                       CHECKOUT
                     </Link>
                   </li>
+                  {order && order.length ? (
+                    <>
+                      <li>
+                        <Link
+                          className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
+                          to={`/orders`}
+                        >
+                          CHECKOUT
+                        </Link>
+                      </li>
+                    </>
+                  ) : null}
                 </ul>
               </nav>
             </div>

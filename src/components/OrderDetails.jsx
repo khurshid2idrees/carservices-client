@@ -11,9 +11,7 @@ export default function OrderDetails() {
 
   const cartitems = useSelector((state) => state.cart.cartItems);
 
-  if (!orders.length) {
-    window.location.href = "/checkout";
-  }
+ 
 
   const { cart } = orders[0];
   const { address } = orders[0];
@@ -30,6 +28,10 @@ export default function OrderDetails() {
       dispatch(fetchOrders(user._id));
     }
   }, [dispatch, user]);
+
+  if (!orders || orders.length === 0) {
+    return <p>No orders found.</p>;
+  }
 
   if (orderStatus === "loading") {
     return <p>Loading...</p>;

@@ -5,6 +5,7 @@ import { resetState } from "../features/cartSlice";
 import { createOrder } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { resetCart } from "../features/cartSlice";
+import { resetOrder } from "../features/cartSlice";
 
 export default function Checkout() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -43,8 +44,10 @@ export default function Checkout() {
     console.log(myaddress, "ye to rha");
 
     dispatch(createOrder({ cart: cartitems, user, address: myaddress }));
-    navigate("/orders");
 
+    setTimeout(() => {
+      navigate("/orders");
+    }, 3000);
     // console.log({ cart: cartitems, user: user, address: myaddress }, "kdhere");
   };
 
@@ -54,12 +57,12 @@ export default function Checkout() {
         {!cartItems.length ? (
           <>
             <div className="flex justify-center">
-            {/* <img src={emptycart} alt="" /> */}
-          </div>
-          <h1 className="mb-10 text-center text-2xl font-bold mt-8">
-            {" "}
-            No Products Added checkout
-          </h1>
+              {/* <img src={emptycart} alt="" /> */}
+            </div>
+            <h1 className="mb-10 text-center text-2xl font-bold mt-8">
+              {" "}
+              Please Add Products for Checkout
+            </h1>
           </>
         ) : (
           <>
@@ -257,7 +260,11 @@ export default function Checkout() {
               </div>
             </div>
 
-            <button onClick={() => dispatch(resetCart())}>reset</button>
+            <button
+              onClick={() => dispatch(resetOrder(), dispatch(resetCart()))}
+            >
+              reset
+            </button>
           </>
         )}
       </>
