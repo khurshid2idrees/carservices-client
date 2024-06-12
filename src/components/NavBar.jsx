@@ -55,7 +55,7 @@ export default function NavBar() {
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                       to={`/`}
                     >
-                      Home
+                      HOME
                     </Link>
                   </li>
 
@@ -64,7 +64,7 @@ export default function NavBar() {
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                       to={`/cart`}
                     >
-                      Cart
+                      CART
                     </Link>
                   </li>
                   <li>
@@ -72,7 +72,7 @@ export default function NavBar() {
                       className="inline-block no-underline hover:text-black font-medium text-lg py-2 px-4 lg:-ml-2"
                       to={`/orders`}
                     >
-                      Orders
+                      ORDERS
                     </Link>
                   </li>
                 </ul>
@@ -87,6 +87,7 @@ export default function NavBar() {
               </button> */}
 
               <div className="auth flex items-center w-full md:w-full">
+                <Link to={`/cart`}>
                 <div className="mr-8">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +112,7 @@ export default function NavBar() {
                     </span>
                   </span>
                 </div>
+                </Link>
                 {user.name ? (
                   <>
                     <button
